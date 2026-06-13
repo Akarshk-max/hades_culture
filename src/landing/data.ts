@@ -9,6 +9,18 @@ export const SHOP_ALL = `${SHOP_BASE}/collections/all`
 export const SHOP_REBIRTH = `${SHOP_BASE}/collections/rebirth-ss26`
 export const INSTAGRAM = 'https://www.instagram.com/hadesculture.store'
 
+/* ── Section 2 video montage ──────────────────────────────────────────────
+ * Drop your clips in /public/media/clips/ named clip01.mp4, clip02.mp4, …
+ * Then set MONTAGE_CLIP_COUNT to how many you have. Missing files are skipped
+ * gracefully, so an off-by-one count won't break the montage. */
+export const MONTAGE_CLIP_COUNT = 7
+export const MONTAGE_CLIPS = Array.from(
+  { length: MONTAGE_CLIP_COUNT },
+  (_, i) => `/media/clips/clip${String(i + 1).padStart(2, '0')}.mp4`
+)
+/** Poster frame shown before clips load / when reduced-motion is on. */
+export const MONTAGE_POSTER = '/media/clips/poster.jpg'
+
 /** Images for the 3D "THE DROP" gallery — the brand's real shoot. */
 export const GALLERY_IMAGES = [
   { file: 'DSC03300_28d44e33-a52b-4bec-b505-2f060cfae71f.jpg', alt: 'Muse Brown' },

@@ -85,6 +85,13 @@ export function Hero() {
         }}
       />
 
+      {/* Bottom edge dissolves into shared black (#0A0A0B) → no hard seam */}
+      <div
+        aria-hidden
+        className="absolute inset-x-0 bottom-0 z-[5] h-32"
+        style={{ background: 'linear-gradient(to bottom, transparent, #0A0A0B)' }}
+      />
+
       {/* Content */}
       <motion.div
         variants={container}

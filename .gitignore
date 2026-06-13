@@ -5,3 +5,6 @@ dist
 .DS_Store
 .vercel
 .netlify
+
+# Raw 4K camera source clips — transcoded into public/media/clips/clipNN.mp4
+media-src

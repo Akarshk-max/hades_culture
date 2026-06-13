@@ -55,3 +55,30 @@
   color: hsl(var(--foreground));
   font-family: Inter, system-ui, sans-serif;
 }
+
+/* ── Seamless scrolling marquee (between hero and Section 2) ──────────────── */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* The track holds two identical copies; -50% lands exactly on the seam. */
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  will-change: transform;
+  animation: marquee 30s linear infinite;
+}
+.marquee-strip:hover .marquee-track {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+    transform: translateX(0);
+  }
+}
