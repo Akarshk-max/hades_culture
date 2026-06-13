@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* shadcn/ui semantic tokens — mapped to the Hades Culture palette (HSL) */
+    --background: 240 6% 4%; /* #0A0A0B near-black */
+    --foreground: 40 24% 95%; /* #F5F3EF warm off-white */
+
+    --card: 240 5% 8%; /* #141416 surface */
+    --card-foreground: 40 24% 95%;
+
+    --primary: 36 56% 51%; /* #C8923D bronze */
+    --primary-foreground: 240 6% 4%;
+
+    --secondary: 352 56% 28%; /* #6E1F2A oxblood */
+    --secondary-foreground: 40 24% 95%;
+
+    --muted: 240 5% 12%;
+    --muted-foreground: 40 3% 53%; /* #8A8782 */
+
+    --accent: 36 56% 51%;
+    --accent-foreground: 240 6% 4%;
+
+    --border: 240 5% 15%;
+    --input: 240 5% 15%;
+    --ring: 36 56% 51%; /* bronze focus ring */
+
+    --radius: 0.375rem;
+  }
+}
+
+/* ── Film-grain overlay (page-wide, pointer-events none, low opacity) ── */
+.film-grain {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .film-grain {
+    animation: grain 8s steps(6) infinite;
+  }
+}
+
+/* Hide the browser scrollbar visual jump but keep native scrolling */
+.landing-root {
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: Inter, system-ui, sans-serif;
+}
